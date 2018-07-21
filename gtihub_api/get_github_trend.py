@@ -1,8 +1,10 @@
-from bs4 import BeautifulSoup
-import requests
 import re
 import codecs
 import json
+
+
+from bs4 import BeautifulSoup
+import requests
 
 
 def create_trend_repository_list():
