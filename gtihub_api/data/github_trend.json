@@ -1,0 +1,152 @@
+{
+    "javascript-algorithms": {
+        "owner": "trekhleb",
+        "name": "javascript-algorithms",
+        "repo_url": "https://github.com/trekhleb/javascript-algorithms",
+        "today_stars": 920
+    },
+    "system-design-primer": {
+        "owner": "donnemartin",
+        "name": "system-design-primer",
+        "repo_url": "https://github.com/donnemartin/system-design-primer",
+        "today_stars": 444
+    },
+    "data-transfer-project": {
+        "owner": "google",
+        "name": "data-transfer-project",
+        "repo_url": "https://github.com/google/data-transfer-project",
+        "today_stars": 398
+    },
+    "InterviewMap": {
+        "owner": "InterviewMap",
+        "name": "InterviewMap",
+        "repo_url": "https://github.com/InterviewMap/InterviewMap",
+        "today_stars": 375
+    },
+    "coinai": {
+        "owner": "techbanca",
+        "name": "coinai",
+        "repo_url": "https://github.com/techbanca/coinai",
+        "today_stars": 194
+    },
+    "ivideo": {
+        "owner": "phobal",
+        "name": "ivideo",
+        "repo_url": "https://github.com/phobal/ivideo",
+        "today_stars": 234
+    },
+    "v8n": {
+        "owner": "imbrn",
+        "name": "v8n",
+        "repo_url": "https://github.com/imbrn/v8n",
+        "today_stars": 228
+    },
+    "cheat.sh": {
+        "owner": "chubin",
+        "name": "cheat.sh",
+        "repo_url": "https://github.com/chubin/cheat.sh",
+        "today_stars": 222
+    },
+    "pax": {
+        "owner": "nathan",
+        "name": "pax",
+        "repo_url": "https://github.com/nathan/pax",
+        "today_stars": 167
+    },
+    "Wormholy": {
+        "owner": "pmusolino",
+        "name": "Wormholy",
+        "repo_url": "https://github.com/pmusolino/Wormholy",
+        "today_stars": 152
+    },
+    "graphql-engine": {
+        "owner": "hasura",
+        "name": "graphql-engine",
+        "repo_url": "https://github.com/hasura/graphql-engine",
+        "today_stars": 128
+    },
+    "vue": {
+        "owner": "vuejs",
+        "name": "vue",
+        "repo_url": "https://github.com/vuejs/vue",
+        "today_stars": 118
+    },
+    "Java-Interview": {
+        "owner": "crossoverJie",
+        "name": "Java-Interview",
+        "repo_url": "https://github.com/crossoverJie/Java-Interview",
+        "today_stars": 112
+    },
+    "Interview-Notebook": {
+        "owner": "CyC2018",
+        "name": "Interview-Notebook",
+        "repo_url": "https://github.com/CyC2018/Interview-Notebook",
+        "today_stars": 106
+    },
+    "flutter": {
+        "owner": "flutter",
+        "name": "flutter",
+        "repo_url": "https://github.com/flutter/flutter",
+        "today_stars": 109
+    },
+    "Front-End-Performance-Checklist": {
+        "owner": "thedaviddias",
+        "name": "Front-End-Performance-Checklist",
+        "repo_url": "https://github.com/thedaviddias/Front-End-Performance-Checklist",
+        "today_stars": 109
+    },
+    "public-apis": {
+        "owner": "toddmotto",
+        "name": "public-apis",
+        "repo_url": "https://github.com/toddmotto/public-apis",
+        "today_stars": 104
+    },
+    "react-developer-roadmap": {
+        "owner": "adam-golab",
+        "name": "react-developer-roadmap",
+        "repo_url": "https://github.com/adam-golab/react-developer-roadmap",
+        "today_stars": 104
+    },
+    "join-dev-design": {
+        "owner": "Microsoft",
+        "name": "join-dev-design",
+        "repo_url": "https://github.com/Microsoft/join-dev-design",
+        "today_stars": 83
+    },
+    "Cirq": {
+        "owner": "quantumlib",
+        "name": "Cirq",
+        "repo_url": "https://github.com/quantumlib/Cirq",
+        "today_stars": 100
+    },
+    "react": {
+        "owner": "facebook",
+        "name": "react",
+        "repo_url": "https://github.com/facebook/react",
+        "today_stars": 91
+    },
+    "findcl": {
+        "owner": "ssstk",
+        "name": "findcl",
+        "repo_url": "https://github.com/ssstk/findcl",
+        "today_stars": 94
+    },
+    "tensorflow": {
+        "owner": "tensorflow",
+        "name": "tensorflow",
+        "repo_url": "https://github.com/tensorflow/tensorflow",
+        "today_stars": 79
+    },
+    "vue-element-admin": {
+        "owner": "PanJiaChen",
+        "name": "vue-element-admin",
+        "repo_url": "https://github.com/PanJiaChen/vue-element-admin",
+        "today_stars": 86
+    },
+    "realworld": {
+        "owner": "gothinkster",
+        "name": "realworld",
+        "repo_url": "https://github.com/gothinkster/realworld",
+        "today_stars": 84
+    }
+}

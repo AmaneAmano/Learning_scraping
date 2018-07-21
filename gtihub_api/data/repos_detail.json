@@ -1,0 +1,623 @@
+{
+    "360-Capture-SDK": {
+        "name": "360-Capture-SDK",
+        "full_name": "facebook/360-Capture-SDK",
+        "description": "A developer focused sample SDK that allows game and virtual Reality devs to be able to easily and quickly integrate 360 photo/video capture capability into their game apps.",
+        "repo_url": "https://github.com/facebook/360-Capture-SDK",
+        "homepage_url": "https://github.com/facebook/360-Capture-SDK",
+        "main_language": "C++",
+        "languages_url": "https://api.github.com/repos/facebook/360-Capture-SDK/languages",
+        "stars_count": 156,
+        "forks": 43,
+        "forks_count": 43,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "android-jsc": {
+        "name": "android-jsc",
+        "full_name": "facebook/android-jsc",
+        "description": "Scripts for building JSC for Android",
+        "repo_url": "https://github.com/facebook/android-jsc",
+        "homepage_url": "",
+        "main_language": "Python",
+        "languages_url": "https://api.github.com/repos/facebook/android-jsc/languages",
+        "stars_count": 150,
+        "forks": 28,
+        "forks_count": 28,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "augmented-traffic-control": {
+        "name": "augmented-traffic-control",
+        "full_name": "facebook/augmented-traffic-control",
+        "description": "Augmented Traffic Control: A tool to simulate network conditions",
+        "repo_url": "https://github.com/facebook/augmented-traffic-control",
+        "homepage_url": "https://facebook.github.io/augmented-traffic-control",
+        "main_language": "Python",
+        "languages_url": "https://api.github.com/repos/facebook/augmented-traffic-control/languages",
+        "stars_count": 3958,
+        "forks": 550,
+        "forks_count": 550,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "bAbI-tasks": {
+        "name": "bAbI-tasks",
+        "full_name": "facebook/bAbI-tasks",
+        "description": "Task generation for testing text understanding and reasoning",
+        "repo_url": "https://github.com/facebook/bAbI-tasks",
+        "homepage_url": null,
+        "main_language": "Lua",
+        "languages_url": "https://api.github.com/repos/facebook/bAbI-tasks/languages",
+        "stars_count": 661,
+        "forks": 154,
+        "forks_count": 154,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "between-meals": {
+        "name": "between-meals",
+        "full_name": "facebook/between-meals",
+        "description": "A library to provide calculations between Chef diffs.",
+        "repo_url": "https://github.com/facebook/between-meals",
+        "homepage_url": null,
+        "main_language": "Ruby",
+        "languages_url": "https://api.github.com/repos/facebook/between-meals/languages",
+        "stars_count": 40,
+        "forks": 36,
+        "forks_count": 36,
+        "topics": [],
+        "license": {
+            "key": "apache-2.0",
+            "name": "Apache License 2.0",
+            "spdx_id": "Apache-2.0",
+            "url": "https://api.github.com/licenses/apache-2.0",
+            "node_id": "MDc6TGljZW5zZTI="
+        }
+    },
+    "bistro": {
+        "name": "bistro",
+        "full_name": "facebook/bistro",
+        "description": "Bistro is a flexible distributed scheduler, a high-performance framework supporting multiple paradigms while retaining ease of configuration, management, and monitoring.",
+        "repo_url": "https://github.com/facebook/bistro",
+        "homepage_url": "https://bistro.io",
+        "main_language": "C++",
+        "languages_url": "https://api.github.com/repos/facebook/bistro/languages",
+        "stars_count": 548,
+        "forks": 80,
+        "forks_count": 80,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "BridgeIC": {
+        "name": "BridgeIC",
+        "full_name": "facebook/BridgeIC",
+        "description": "Firmware for BridgeIC functionality for 1S servers for Yosemite Platform",
+        "repo_url": "https://github.com/facebook/BridgeIC",
+        "homepage_url": null,
+        "main_language": "Shell",
+        "languages_url": "https://api.github.com/repos/facebook/BridgeIC/languages",
+        "stars_count": 6,
+        "forks": 11,
+        "forks_count": 11,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "buck": {
+        "name": "buck",
+        "full_name": "facebook/buck",
+        "description": "A fast build system that encourages the creation of small, reusable modules over a variety of platforms and languages.",
+        "repo_url": "https://github.com/facebook/buck",
+        "homepage_url": "https://buckbuild.com",
+        "main_language": "Java",
+        "languages_url": "https://api.github.com/repos/facebook/buck/languages",
+        "stars_count": 5949,
+        "forks": 898,
+        "forks_count": 898,
+        "topics": [
+            "android",
+            "buck",
+            "build-tool",
+            "ios",
+            "java",
+            "python"
+        ],
+        "license": {
+            "key": "apache-2.0",
+            "name": "Apache License 2.0",
+            "spdx_id": "Apache-2.0",
+            "url": "https://api.github.com/licenses/apache-2.0",
+            "node_id": "MDc6TGljZW5zZTI="
+        }
+    },
+    "C3D": {
+        "name": "C3D",
+        "full_name": "facebook/C3D",
+        "description": "C3D is a modified version of BVLC caffe to support 3D ConvNets.",
+        "repo_url": "https://github.com/facebook/C3D",
+        "homepage_url": "",
+        "main_language": "Jupyter Notebook",
+        "languages_url": "https://api.github.com/repos/facebook/C3D/languages",
+        "stars_count": 649,
+        "forks": 360,
+        "forks_count": 360,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "caf8teen": {
+        "name": "caf8teen",
+        "full_name": "facebook/caf8teen",
+        "description": null,
+        "repo_url": "https://github.com/facebook/caf8teen",
+        "homepage_url": null,
+        "main_language": "Processing",
+        "languages_url": "https://api.github.com/repos/facebook/caf8teen/languages",
+        "stars_count": 32,
+        "forks": 19,
+        "forks_count": 19,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "Carmel-Starter-Kit": {
+        "name": "Carmel-Starter-Kit",
+        "full_name": "facebook/Carmel-Starter-Kit",
+        "description": "Starter kit samples for Carmel, the WebVR enabled browser.",
+        "repo_url": "https://github.com/facebook/Carmel-Starter-Kit",
+        "homepage_url": null,
+        "main_language": "JavaScript",
+        "languages_url": "https://api.github.com/repos/facebook/Carmel-Starter-Kit/languages",
+        "stars_count": 78,
+        "forks": 17,
+        "forks_count": 17,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "chef-cookbooks": {
+        "name": "chef-cookbooks",
+        "full_name": "facebook/chef-cookbooks",
+        "description": "Open source chef cookbooks.",
+        "repo_url": "https://github.com/facebook/chef-cookbooks",
+        "homepage_url": null,
+        "main_language": "Ruby",
+        "languages_url": "https://api.github.com/repos/facebook/chef-cookbooks/languages",
+        "stars_count": 391,
+        "forks": 74,
+        "forks_count": 74,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "chef-utils": {
+        "name": "chef-utils",
+        "full_name": "facebook/chef-utils",
+        "description": "Utilities related to Chef",
+        "repo_url": "https://github.com/facebook/chef-utils",
+        "homepage_url": null,
+        "main_language": "Ruby",
+        "languages_url": "https://api.github.com/repos/facebook/chef-utils/languages",
+        "stars_count": 237,
+        "forks": 69,
+        "forks_count": 69,
+        "topics": [],
+        "license": null
+    },
+    "chisel": {
+        "name": "chisel",
+        "full_name": "facebook/chisel",
+        "description": "Chisel is a collection of LLDB commands to assist debugging iOS apps.",
+        "repo_url": "https://github.com/facebook/chisel",
+        "homepage_url": null,
+        "main_language": "Python",
+        "languages_url": "https://api.github.com/repos/facebook/chisel/languages",
+        "stars_count": 6894,
+        "forks": 601,
+        "forks_count": 601,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "codemod": {
+        "name": "codemod",
+        "full_name": "facebook/codemod",
+        "description": "Codemod is a tool/library to assist you with large-scale codebase refactors that can be partially automated but still require human oversight and occasional intervention. Codemod was developed at Facebook and released as open source.",
+        "repo_url": "https://github.com/facebook/codemod",
+        "homepage_url": "",
+        "main_language": "Python",
+        "languages_url": "https://api.github.com/repos/facebook/codemod/languages",
+        "stars_count": 2381,
+        "forks": 131,
+        "forks_count": 131,
+        "topics": [],
+        "license": {
+            "key": "apache-2.0",
+            "name": "Apache License 2.0",
+            "spdx_id": "Apache-2.0",
+            "url": "https://api.github.com/licenses/apache-2.0",
+            "node_id": "MDc6TGljZW5zZTI="
+        }
+    },
+    "componentkit": {
+        "name": "componentkit",
+        "full_name": "facebook/componentkit",
+        "description": "A React-inspired view framework for iOS.",
+        "repo_url": "https://github.com/facebook/componentkit",
+        "homepage_url": "http://www.componentkit.org/",
+        "main_language": "Objective-C++",
+        "languages_url": "https://api.github.com/repos/facebook/componentkit/languages",
+        "stars_count": 4583,
+        "forks": 506,
+        "forks_count": 506,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "conceal": {
+        "name": "conceal",
+        "full_name": "facebook/conceal",
+        "description": "Conceal provides easy Android APIs for performing fast encryption and authentication of data.",
+        "repo_url": "https://github.com/facebook/conceal",
+        "homepage_url": "http://facebook.github.io/conceal/",
+        "main_language": "C++",
+        "languages_url": "https://api.github.com/repos/facebook/conceal/languages",
+        "stars_count": 2714,
+        "forks": 415,
+        "forks_count": 415,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "Conditional-character-based-RNN": {
+        "name": "Conditional-character-based-RNN",
+        "full_name": "facebook/Conditional-character-based-RNN",
+        "description": "An efficient character based RNN",
+        "repo_url": "https://github.com/facebook/Conditional-character-based-RNN",
+        "homepage_url": null,
+        "main_language": "C++",
+        "languages_url": "https://api.github.com/repos/facebook/Conditional-character-based-RNN/languages",
+        "stars_count": 86,
+        "forks": 39,
+        "forks_count": 39,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "create-react-app": {
+        "name": "create-react-app",
+        "full_name": "facebook/create-react-app",
+        "description": "Create React apps with no build configuration.",
+        "repo_url": "https://github.com/facebook/create-react-app",
+        "homepage_url": null,
+        "main_language": "JavaScript",
+        "languages_url": "https://api.github.com/repos/facebook/create-react-app/languages",
+        "stars_count": 52517,
+        "forks": 11204,
+        "forks_count": 11204,
+        "topics": [
+            "build-tools",
+            "react",
+            "zero-configuration"
+        ],
+        "license": {
+            "key": "mit",
+            "name": "MIT License",
+            "spdx_id": "MIT",
+            "url": "https://api.github.com/licenses/mit",
+            "node_id": "MDc6TGljZW5zZTEz"
+        }
+    },
+    "dataloader": {
+        "name": "dataloader",
+        "full_name": "facebook/dataloader",
+        "description": "DataLoader is a generic utility to be used as part of your application's data fetching layer to provide a consistent API over various backends and reduce requests to those backends via batching and caching.",
+        "repo_url": "https://github.com/facebook/dataloader",
+        "homepage_url": null,
+        "main_language": "JavaScript",
+        "languages_url": "https://api.github.com/repos/facebook/dataloader/languages",
+        "stars_count": 5302,
+        "forks": 213,
+        "forks_count": 213,
+        "topics": [
+            "batch",
+            "dataloader",
+            "graphql",
+            "nodejs"
+        ],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "DelegatedRecoveryReferenceImplementation": {
+        "name": "DelegatedRecoveryReferenceImplementation",
+        "full_name": "facebook/DelegatedRecoveryReferenceImplementation",
+        "description": "The reference implementation of the Delegated Recovery specification found at https://github.com/facebook/DelegatedRecoverySpecification",
+        "repo_url": "https://github.com/facebook/DelegatedRecoveryReferenceImplementation",
+        "homepage_url": null,
+        "main_language": "Java",
+        "languages_url": "https://api.github.com/repos/facebook/DelegatedRecoveryReferenceImplementation/languages",
+        "stars_count": 21,
+        "forks": 27,
+        "forks_count": 27,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "DelegatedRecoverySpecification": {
+        "name": "DelegatedRecoverySpecification",
+        "full_name": "facebook/DelegatedRecoverySpecification",
+        "description": "Allows an application to delegate the capability to recover an account to an account controlled by the same user or entity at a third party service provider.",
+        "repo_url": "https://github.com/facebook/DelegatedRecoverySpecification",
+        "homepage_url": null,
+        "main_language": "HTML",
+        "languages_url": "https://api.github.com/repos/facebook/DelegatedRecoverySpecification/languages",
+        "stars_count": 200,
+        "forks": 46,
+        "forks_count": 46,
+        "topics": [],
+        "license": {
+            "key": "cc-by-4.0",
+            "name": "Creative Commons Attribution 4.0",
+            "spdx_id": "CC-BY-4.0",
+            "url": "https://api.github.com/licenses/cc-by-4.0",
+            "node_id": "MDc6TGljZW5zZTI1"
+        }
+    },
+    "device-year-class": {
+        "name": "device-year-class",
+        "full_name": "facebook/device-year-class",
+        "description": "A library that analyzes an Android device's specifications and calculates which year the device would be considered \"high end”.",
+        "repo_url": "https://github.com/facebook/device-year-class",
+        "homepage_url": "",
+        "main_language": "Java",
+        "languages_url": "https://api.github.com/repos/facebook/device-year-class/languages",
+        "stars_count": 2036,
+        "forks": 211,
+        "forks_count": 211,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "dfuse": {
+        "name": "dfuse",
+        "full_name": "facebook/dfuse",
+        "description": "dfuse is a binding for the fuse filesystem library written in D.",
+        "repo_url": "https://github.com/facebook/dfuse",
+        "homepage_url": null,
+        "main_language": "D",
+        "languages_url": "https://api.github.com/repos/facebook/dfuse/languages",
+        "stars_count": 45,
+        "forks": 27,
+        "forks_count": 27,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "Docusaurus": {
+        "name": "Docusaurus",
+        "full_name": "facebook/Docusaurus",
+        "description": "Easy to maintain open source documentation websites.",
+        "repo_url": "https://github.com/facebook/Docusaurus",
+        "homepage_url": "https://docusaurus.io",
+        "main_language": "JavaScript",
+        "languages_url": "https://api.github.com/repos/facebook/Docusaurus/languages",
+        "stars_count": 8049,
+        "forks": 531,
+        "forks_count": 531,
+        "topics": [
+            "documentation",
+            "javascript",
+            "open-source",
+            "react",
+            "website"
+        ],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "draft-js": {
+        "name": "draft-js",
+        "full_name": "facebook/draft-js",
+        "description": "A React framework for building text editors.",
+        "repo_url": "https://github.com/facebook/draft-js",
+        "homepage_url": "https://draftjs.org/",
+        "main_language": "JavaScript",
+        "languages_url": "https://api.github.com/repos/facebook/draft-js/languages",
+        "stars_count": 13414,
+        "forks": 1430,
+        "forks_count": 1430,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "ds2": {
+        "name": "ds2",
+        "full_name": "facebook/ds2",
+        "description": "Debug server for lldb.",
+        "repo_url": "https://github.com/facebook/ds2",
+        "homepage_url": "https://github.com/facebook/ds2",
+        "main_language": "C++",
+        "languages_url": "https://api.github.com/repos/facebook/ds2/languages",
+        "stars_count": 215,
+        "forks": 65,
+        "forks_count": 65,
+        "topics": [
+            "c-plus-plus",
+            "debugger",
+            "lldb",
+            "toolchain"
+        ],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "duckling": {
+        "name": "duckling",
+        "full_name": "facebook/duckling",
+        "description": "Language, engine, and tooling for expressing, testing, and evaluating composable language rules on input strings.",
+        "repo_url": "https://github.com/facebook/duckling",
+        "homepage_url": null,
+        "main_language": "Haskell",
+        "languages_url": "https://api.github.com/repos/facebook/duckling/languages",
+        "stars_count": 1748,
+        "forks": 235,
+        "forks_count": 235,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "emitter": {
+        "name": "emitter",
+        "full_name": "facebook/emitter",
+        "description": "A JS EventEmitter foundation for evented code",
+        "repo_url": "https://github.com/facebook/emitter",
+        "homepage_url": null,
+        "main_language": "JavaScript",
+        "languages_url": "https://api.github.com/repos/facebook/emitter/languages",
+        "stars_count": 778,
+        "forks": 92,
+        "forks_count": 92,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    },
+    "eyescream": {
+        "name": "eyescream",
+        "full_name": "facebook/eyescream",
+        "description": "natural image generation using ConvNets",
+        "repo_url": "https://github.com/facebook/eyescream",
+        "homepage_url": null,
+        "main_language": "Lua",
+        "languages_url": "https://api.github.com/repos/facebook/eyescream/languages",
+        "stars_count": 571,
+        "forks": 133,
+        "forks_count": 133,
+        "topics": [],
+        "license": {
+            "key": "other",
+            "name": "Other",
+            "spdx_id": null,
+            "url": null,
+            "node_id": "MDc6TGljZW5zZTA="
+        }
+    }
+}
