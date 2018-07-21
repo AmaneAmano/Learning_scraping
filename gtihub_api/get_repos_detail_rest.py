@@ -9,7 +9,6 @@ import codecs
 from dotenv import load_dotenv
 import requests
 
-
 # Prepare api keys
 env_path = os.path.join(os.path.dirname(__file__), ".env")
 load_dotenv(env_path)
