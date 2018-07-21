@@ -84,14 +84,18 @@ def write_json(dist, obj):
         json.dump(obj, f, ensure_ascii=False, indent=4)
 
 
-if __name__ == "__main__":
-    path = './data/repos_detail.json'
+def load_json(path):
+    with codecs.open(path, "r", "utf-8") as f:
+        json_data = json.load(f)
+    return json_data
 
-    user_name = 'vuejs'
-    url = create_endpoint(user_name)
+
+if __name__ == "__main__":
+    DIST = './data/repos_detail.json'
+    PATH = './data/github_trend.json'
+
+    OWNER = "facebook"
+    url = create_endpoint(OWNER)
     repos = call_api(url)
     result = extract_repos_detail(repos)
-
-    write_json(path, result)
-
-
+    write_json(dist=DIST, obj=result)
