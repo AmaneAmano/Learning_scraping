@@ -1,7 +1,9 @@
+"""
+Get repositories listed in GitHub trending(https://github.com/trending).
+"""
 import re
 import codecs
 import json
-
 
 from bs4 import BeautifulSoup
 import requests
