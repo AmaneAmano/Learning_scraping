@@ -3,6 +3,7 @@ Get detail data of github repository using GitHub GraphQL API v4
 More information about Github GraphQL API v4 is here https://developer.github.com/v4/
 """
 import os
+
 from dotenv import load_dotenv
 import requests
 
