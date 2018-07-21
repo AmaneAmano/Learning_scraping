@@ -86,7 +86,7 @@ def write_json(dist, obj):
 
 
 if __name__ == "__main__":
-    path = './data/repo_detail.json'
+    path = './data/repos_detail.json'
 
     user_name = 'vuejs'
     url = create_endpoint(user_name)
