@@ -14,3 +14,4 @@ r = cursor.execute("INSERT INTO books VALUES (%s, %s)",
 print(r)
 connection.commit()
 connection.close()
+
