@@ -34,7 +34,7 @@ class Tag(Model):
         return Quote
 
 
-class DatabasePipline(object):
+class DatabasePipeline(object):
     """
     Save Quotes to MySQL
     """
