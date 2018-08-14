@@ -22,7 +22,7 @@ class Quote(Model):
     """
     @belongs_to_many
     def tags(self):
-        return tag
+        return Tag
 
 
 class Tag(Model):
