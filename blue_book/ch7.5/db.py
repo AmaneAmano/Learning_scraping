@@ -8,7 +8,8 @@ db = PooledMySQLDatabase(
     'sakila',
     max_connections=8,
     stale_timeout=10,
-    user='root'
+    user='root',
+    password='Qt2ZhGWQ'
 )
 
 
@@ -45,7 +46,7 @@ class Film(BaseModel):
             'title': self.title,
             'description': self.description,
             'release_year': self.release_year,
-            'language': self.language,
+            'language': self.language.name,
             'length': self.length,
             'last_update': self.last_update.isoformat(),
         }
