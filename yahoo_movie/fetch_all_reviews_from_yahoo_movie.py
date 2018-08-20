@@ -15,7 +15,7 @@ def generate_soup_obj(url, params=None):
 
 def find_total_review_count(movie_url):
     """
-    Find a total review count in the target movie.
+    Find a total review count in a target movie.
     :param movie_url: URL of the target movie.
         OK: https://movies.yahoo.co.jp/movie/362714/review/
         NO: https://movies.yahoo.co.jp/movie/未来のミライ/362741/review/
@@ -39,7 +39,7 @@ def make_review_url_list(movie_url, total_count):
     :param total_count: total review count from find_total_review_count()
     :return: review url list
     """
-
+    base_url = "https://movies.yahoo.co.jp"
     result = list()
     pages = math.ceil(total_count / 10)
 
@@ -48,12 +48,12 @@ def make_review_url_list(movie_url, total_count):
         soup = generate_soup_obj(movie_url, params=payload)
         urls = soup.find_all("a", class_="listview__element--right-icon")
         for el in urls:
-            url = BASE_URL + el.get("href")
+            url = base_url + el.get("href")
             url = url[:url.index("?")]
             result.append(url)
         time.sleep(random.randint(1, 3))
 
-    return result
+    return resultK
 
 
 def fetch_review_text(review_url, is_string=True):
@@ -85,7 +85,6 @@ def write_json(dist, obj):
 
 
 if __name__ == "__main__":
-    BASE_URL = "https://movies.yahoo.co.jp"
     MOVIE_URL = "https://movies.yahoo.co.jp/movie/362714/review/"
     DIST = "./movie_reviews.json"
 
