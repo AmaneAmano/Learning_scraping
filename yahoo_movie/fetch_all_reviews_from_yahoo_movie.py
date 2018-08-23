@@ -32,28 +32,28 @@ def find_total_review_count(movie_url):
     return int(re.search(r"([0-9]+)", count_string).group())
 
 
-def make_review_url_list(movie_url, total_count):
+def make_review_url_list(movie_url):
     """
     Make review urls list.
     :param movie_url: Target movie url.
-    :param total_count: total review count from find_total_review_count()
     :return: review url list
     """
     base_url = "https://movies.yahoo.co.jp"
     result = list()
+    total_count = find_total_review_count(movie_url)
     pages = math.ceil(total_count / 10)
 
     for page in range(1, pages+1):
         payload = {"page": page}
         soup = generate_soup_obj(movie_url, params=payload)
-        urls = soup.find_all("a", class_="listview__element--right-icon")
-        for el in urls:
-            url = base_url + el.get("href")
-            url = url[:url.index("?")]
+        elements = soup.find_all("a", class_="listview__element--right-icon")
+        for elm in elements:
+            url = base_url + elm.get("href")
+            url = url[:url.index("?")] # Remove query parameter
             result.append(url)
         time.sleep(random.randint(1, 3))
 
-    return resultK
+    return result
 
 
 def fetch_review_text(review_url, is_string=True):
@@ -72,26 +72,14 @@ def fetch_review_text(review_url, is_string=True):
         return review_string.strip().replace("<br/>", "\n")
 
 
-def fetch_movie_data(movie_url):
+def fetch_movie_title_and_rating(movie_url):
     soup = generate_soup_obj(movie_url)
-    title = soup.find("h1", class_="text-xlarge ").text.replace(" ", "").replace("\n", "")
+    title = soup.find("h1", class_="text-xlarge").text.replace(" ", "").replace("\n", "")
     rating_value = float(soup.find("span", {"itemprop": "ratingValue"}).string)
     return title, rating_value
 
 
-def write_json(dist, obj):
-    with codecs.open(dist, "w", "utf-8") as f:
-        json.dump(obj, f, ensure_ascii=False, indent=4)
-
-
-if __name__ == "__main__":
-    MOVIE_URL = "https://movies.yahoo.co.jp/movie/362714/review/"
-    DIST = "./movie_reviews.json"
-
-    url_list = make_review_url_list(movie_url=MOVIE_URL,
-                                    total_count=find_total_review_count(MOVIE_URL))
-    print("Complete making review url list")
-
+def write_json_format(dist, url_list):
     output = dict()
     tmp = dict()
     for i, url in enumerate(url_list):
@@ -99,8 +87,19 @@ if __name__ == "__main__":
         time.sleep(random.randint(1, 3))
         print(f"Complete: {url}")
 
-    output['title'], output['rating_value'] = fetch_movie_data(movie_url=MOVIE_URL)
-    output['data'] = tmp
+    output['title'], output['rating_value'] = fetch_movie_title_and_rating(movie_url=MOVIE_URL)
+    output['reviews'] = tmp
 
-    write_json(dist=DIST, obj=output)
+    with codecs.open(dist, "w", "utf-8") as f:
+        json.dump(output, f, ensure_ascii=False, indent=4)
+
+
+if __name__ == "__main__":
+    MOVIE_URL = "https://movies.yahoo.co.jp/movie/363528/review/"  # ペンギン・ハイウェイのレビュー
+    DIST = "./penguin_highway_reviews.json"
+
+    url_list = make_review_url_list(movie_url=MOVIE_URL)
+    print("Complete making a review url list")
+
+    write_json_format(dist=DIST, url_list=url_list)
     print("All Complete")
