@@ -1,5 +1,6 @@
 import random
 import time
+import json
 
 import requests
 from bs4 import BeautifulSoup
@@ -150,15 +151,22 @@ def fetch_movie_reviews_per_page(beautiful_soup_object):
     return output
 
 
+def write_json(obj, movie_id):
+    with open(file=f"data/{movie_id}.json", mode="w", encoding="utf-8") as fw:
+        json.dump(obj=obj, fp=fw, ensure_ascii=False, indent=4)
+
+
 def main(url):
     # Fetch_movie_data
     soup = generate_bs_object(movie_url=url)
     last_page = fetch_last_page(beautiful_soup_object=soup)
     movie_data = fetch_movie_data(movie_url=url, beautiful_soup_object=soup)
 
+    movie_id = url.split("/")[-1]
+
     # When last_page == 0, no reviews have yet been posted.
     if last_page == 0:
-        return dict(movie=movie_data, review={})
+        return write_json(dict(movie=movie_data, review={}), movie_id)
     else:
         # Fetch page=1 reviews
         reviews = fetch_movie_reviews_per_page(beautiful_soup_object=soup)
@@ -171,12 +179,12 @@ def main(url):
             reviews_container.update(reviews)
             time.sleep(random.randint(1, 3))
 
-        return dict(movie=movie_data, review=reviews_container)
+        return write_json(dict(movie=movie_data, review=reviews_container), movie_id)
 
 
-url_list = [f"https://filmarks.com/movies/{random.randint(2000, 60000)}" for _ in range(10)]
+if __name__ == '__main__':
+    url_list = [f"https://filmarks.com/movies/{random.randint(2000, 60000)}" for _ in range(10)]
 
-for url in url_list:
-    print(url)
-    print(main(url))
-    print("="*30)
+    for url in url_list:
+        print(url)
+        main(url)
