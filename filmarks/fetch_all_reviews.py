@@ -1,3 +1,9 @@
+"""
+Fetch all movie reviews from Filmarks(https://filmarks.com/)
+
+TODO: add logging
+TODO: parallel processing
+"""
 import random
 import time
 import json
