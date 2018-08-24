@@ -172,8 +172,19 @@ def fetch_movie_reviews_per_page(beautiful_soup_object):
     return output
 
 
-def write_json(obj, movie_title):
-    with open(file=f"data/{movie_title}_reviews.json", mode="w", encoding="utf-8") as fw:
+def make_filename(title):
+    from pykakasi import kakasi, wakati
+
+    kakasi = kakasi()
+    kakasi.setMode("H", "a")
+    kakasi.setMode("K", "a")
+    kakasi.setMode("J", "a")
+    conv = kakasi.getConverter()
+    return conv.do(title).replace(" ", "_")
+
+
+def write_json(obj, filename):
+    with open(file=f"data/{filename}.json", mode="w", encoding="utf-8") as fw:
         json.dump(obj=obj, fp=fw, ensure_ascii=False, indent=4)
 
 
@@ -182,6 +193,12 @@ def main(url):
     soup = generate_bs_object(movie_url=url)
     last_page = fetch_last_page(beautiful_soup_object=soup)
     movie_data = fetch_movie_data(movie_url=url, beautiful_soup_object=soup)
+
+    # create filename
+    if movie_data['original_title']:
+        filename = movie_data['original_title'].lower().replace(" ", "_")
+    else:
+        filename = make_filename(movie_data['title'])
 
     # Fetch page=1 reviews
     reviews = fetch_movie_reviews_per_page(beautiful_soup_object=soup)
@@ -192,7 +209,7 @@ def main(url):
     if last_page == 0:
         review['total_count'] = len(review_list)
         review['reviews'] = review_list
-        return write_json(dict(movie=movie_data, reviews=review), movie_data['title'])
+        return write_json(dict(movie=movie_data, reviews=review), filename)
     else:
 
         for page in range(2, last_page + 1):
@@ -203,9 +220,10 @@ def main(url):
 
         review['total_count'] = len(review_list)
         review['reviews'] = review_list
-        return write_json(dict(movie=movie_data, reviews=review), movie_data['title'])
+        return write_json(dict(movie=movie_data, reviews=review), filename)
 
 
 if __name__ == '__main__':
     url = "https://filmarks.com/movies/68895"
-    main(url)
+    url2 = "https://filmarks.com/movies/16289"
+    main(url2)
