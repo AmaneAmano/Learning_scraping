@@ -55,15 +55,12 @@ def fetch_movie_data(movie_url, beautiful_soup_object):
                   staffs={}, casts=[]
                   )
     # Get a title
-    output['title'] = soup.select_one("body > div.l-main > div > div.p-content-detail__head > div >"
-                            " div.p-content-detail__body > div.p-content-detail__main > h2 > span").text
+    output['title'] = soup.select_one("h2 > span").text
     # Get an original title
-    output['original_title'] = soup.select_one("body > div.l-main > div > div.p-content-detail__head >"
-                                     " div > div.p-content-detail__body > div.p-content-detail__main > p").text
+    output['original_title'] = soup.select_one(".p-content-detail__main > p").text
+
     # Get a release date and a running time
-    other_info = soup.select("body > div.l-main > div > div.p-content-detail__head > div >"
-                             " div.p-content-detail__body > div.p-content-detail__main >"
-                             " div.p-content-detail__other-info > h3")
+    other_info = soup.select(".p-content-detail__other-info > h3")
 
     for info in other_info:
         label, content = info.text.split("：")
@@ -73,53 +70,49 @@ def fetch_movie_data(movie_url, beautiful_soup_object):
             output['running_time'] = int(content.replace("分", ""))
 
     # Get countries
-    countries = soup.select_one("body > div.l-main > div >"
-                                " div.p-content-detail__head > div > div.p-content-detail__body >"
-                                " div.p-content-detail__main > div.p-content-detail__other-info > ul")
+    countries = soup.select_one(".p-content-detail__other-info > ul")
     if countries:
         output['countries'] = [c for c in countries.strings]
 
     # Get genre(s)
-    genres = soup.select_one("body > div.l-main > div > div.p-content-detail__head > div >"
-                             " div.p-content-detail__body > div.p-content-detail__main >"
-                             " div.p-content-detail__genre > ul")
+    genres = soup.select_one(".p-content-detail__genre > ul")
     if genres:
         output['genres'] = [genre for genre in genres.strings]
 
     # Get a rating score
-    rating_score = soup.select_one("body > div.l-main > div > div.p-content-detail__head >"
-                                   " div > div.p-content-detail__body > div.p-content-detail__main >"
-                                   " div.p-content-detail-state > div > div > div.c-rating__score").text
+    rating_score = soup.select_one(".p-content-detail-state > div > div > div.c-rating__score").text
     if rating_score == "-":
         output['rating_score'] = 0
     else:
         output['rating_score'] = float(rating_score)
 
     # Get synopsis text
-    synopsis = soup.select("#js-content-detail-synopsis > p:nth-of-type(2)")
+    synopsis = soup.select_one("#js-content-detail-synopsis > p:nth-of-type(2)")
     if synopsis:
-        output['synopsis'] = synopsis[0].text
+        output['synopsis'] = synopsis.text
 
     # Get staff names
-    staff_dict = dict(director=[], writer=[], orginal_author=[])
-    staffs = soup.select("body > div.l-main > div > div.p-content-detail__head >"
-                         " div > div.p-content-detail__body > div.p-content-detail__main >"
-                         " div.p-content-detail__people-list > div.p-content-detail__people-list-others__wrapper > div")
+    staff_dict = dict(director=[], writer=[],
+                      original_author=[], other=[])
+    staffs = soup.select(".p-content-detail__people-list-others__wrapper")
+
     for staff in staffs:
-        label = staff.find("h3").text
+        role = staff.find("h3").text
         content = [person.text for person in staff.find_all("a")]
-        if label == "監督":
+        if role == "監督":
             staff_dict['director'] = content
-        elif label == "脚本":
+        elif role == "脚本":
             staff_dict['writer'] = content
-        elif label == "原作":
+        elif role == "原作":
             staff_dict['original_author'] = content
+        else:
+            staff_dict['other'] = content
     output['staffs'] = staff_dict
 
     # Get cast names
-    casts = soup.select("#js-content-detail-people-cast > ul")
+    casts = soup.select_one("#js-content-detail-people-cast > ul")
     if casts:
-        output['casts'] = [cast.text for cast in casts[0].find_all("a")]
+        output['casts'] = [cast.text for cast in casts.find_all("a")]
 
     return output
 
@@ -131,8 +124,7 @@ def fetch_last_page(beautiful_soup_object):
     :return int: If there aren't any reviews, return 0.
     """
     soup = beautiful_soup_object
-    last_page = soup.select_one("body > div.l-main > div > div.p-content-detail__foot >"
-                                " div.p-main-area.p-timeline > div.c-pagination > a.c-pagination__last")
+    last_page = soup.select_one(".c-pagination__last")
     if last_page:
         return int(last_page.get('href').split("=")[-1])
     else:
@@ -143,22 +135,45 @@ def fetch_movie_reviews_per_page(beautiful_soup_object):
     """
     Fetch movie reviews per page. Max 10 reviews.
     :param beautiful_soup_object:
-    :return dict:
+    :return list of dict:
     """
-    output = dict()
+    output = list()
+    review = dict(review_id="",
+                  review_text="",
+                  posted_date="",
+                  rating_score=0)
 
     soup = beautiful_soup_object
-    reviews = soup.select("body > div.l-main > div > div.p-content-detail__foot >"
-                          " div.p-main-area.p-timeline > div > div.p-mark__review")
-    for review_id, review in zip(soup.select("#mark_id"), reviews):
-        review_id = review_id.get("value")
-        review = review.text.replace("\u3000", "")
-        output[review_id] = review
+
+    # Get review_id
+    review_ids = soup.select("#mark_id")
+    # Get text
+    review_texts = soup.select(".p-mark__review")
+    # Get posted date
+    posted_dates = soup.select(".c-media__content > time")
+    # Get  rating score
+    rating_scores = soup.select(".c-media__content > div > .c-rating__score")
+    if review_texts:
+        for review_id, review_text, posted_date, rating_score in zip(review_ids, review_texts,
+                                                                     posted_dates, rating_scores):
+            review_text = review_text.text.replace("\u3000", "")
+            review_id = int(review_id.get("value"))
+            posted_date = posted_date.get("datetime")
+            if rating_score.text == "-":
+                review['rating_score'] = rating_score.text
+            else:
+                rating_score = float(rating_score.text)
+                review['rating_score'] = rating_score
+
+            review['review_id'] = review_id
+            review['review_text'] = review_text
+            review['posted_date'] = posted_date
+            output.append(review.copy()) # output.append(review)ではすべての要素が同じになるダメ
     return output
 
 
-def write_json(obj, movie_id):
-    with open(file=f"data/{movie_id}.json", mode="w", encoding="utf-8") as fw:
+def write_json(obj, movie_title):
+    with open(file=f"data/{movie_title}_reviews.json", mode="w", encoding="utf-8") as fw:
         json.dump(obj=obj, fp=fw, ensure_ascii=False, indent=4)
 
 
@@ -168,29 +183,29 @@ def main(url):
     last_page = fetch_last_page(beautiful_soup_object=soup)
     movie_data = fetch_movie_data(movie_url=url, beautiful_soup_object=soup)
 
-    movie_id = url.split("/")[-1]
+    # Fetch page=1 reviews
+    reviews = fetch_movie_reviews_per_page(beautiful_soup_object=soup)
+    review_list = reviews
+    time.sleep(random.randint(1, 3))
 
-    # When last_page == 0, no reviews have yet been posted.
+    review = dict(total_count=0, reviews=[])
     if last_page == 0:
-        return write_json(dict(movie=movie_data, review={}), movie_id)
+        review['total_count'] = len(review_list)
+        review['reviews'] = review_list
+        return write_json(dict(movie=movie_data, reviews=review), movie_data['title'])
     else:
-        # Fetch page=1 reviews
-        reviews = fetch_movie_reviews_per_page(beautiful_soup_object=soup)
-        reviews_container = reviews
-        time.sleep(random.randint(1, 3))
 
         for page in range(2, last_page + 1):
             soup = generate_bs_object(movie_url=url, page=page)
             reviews = fetch_movie_reviews_per_page(beautiful_soup_object=soup)
-            reviews_container.update(reviews)
+            review_list.extend(reviews)
             time.sleep(random.randint(1, 3))
 
-        return write_json(dict(movie=movie_data, review=reviews_container), movie_id)
+        review['total_count'] = len(review_list)
+        review['reviews'] = review_list
+        return write_json(dict(movie=movie_data, reviews=review), movie_data['title'])
 
 
 if __name__ == '__main__':
-    url_list = [f"https://filmarks.com/movies/{random.randint(2000, 60000)}" for _ in range(10)]
-
-    for url in url_list:
-        print(url)
-        main(url)
+    url = "https://filmarks.com/movies/68895"
+    main(url)
