@@ -4,6 +4,7 @@ Fetch all movie reviews from Filmarks(https://filmarks.com/)
 TODO: add logging
 TODO: parallel processing
 """
+import os
 import random
 import time
 import json
@@ -137,7 +138,7 @@ def fetch_movie_reviews_per_page(beautiful_soup_object):
     :param beautiful_soup_object:
     :return list of dict:
     """
-    output = list()
+    output = []
     review = dict(review_id="",
                   review_text="",
                   posted_date="",
@@ -160,7 +161,7 @@ def fetch_movie_reviews_per_page(beautiful_soup_object):
             review_id = int(review_id.get("value"))
             posted_date = posted_date.get("datetime")
             if rating_score.text == "-":
-                review['rating_score'] = rating_score.text
+                review['rating_score'] = 0
             else:
                 rating_score = float(rating_score.text)
                 review['rating_score'] = rating_score
@@ -175,20 +176,30 @@ def fetch_movie_reviews_per_page(beautiful_soup_object):
 def make_filename(title):
     from pykakasi import kakasi, wakati
 
+    import zen2han
+
     kakasi = kakasi()
     kakasi.setMode("H", "a")
     kakasi.setMode("K", "a")
     kakasi.setMode("J", "a")
     conv = kakasi.getConverter()
-    return conv.do(title).replace(" ", "_")
+    title = conv.do(title).replace(" ", "_")
+    return zen2han.zen2han(title)
+
+
+def make_dir(dirname):
+    if not os.path.isdir(dirname):
+        os.mkdir(dirname)
 
 
 def write_json(obj, filename):
-    with open(file=f"data/{filename}.json", mode="w", encoding="utf-8") as fw:
+    with open(file=f"{DIRNAME}/{filename}.json", mode="w", encoding="utf-8") as fw:
         json.dump(obj=obj, fp=fw, ensure_ascii=False, indent=4)
 
 
 def main(url):
+    make_dir(DIRNAME)
+
     # Fetch_movie_data
     soup = generate_bs_object(movie_url=url)
     last_page = fetch_last_page(beautiful_soup_object=soup)
@@ -202,7 +213,7 @@ def main(url):
 
     # Fetch page=1 reviews
     reviews = fetch_movie_reviews_per_page(beautiful_soup_object=soup)
-    review_list = reviews
+    review_list = reviews.copy()
     time.sleep(random.randint(1, 3))
 
     review = dict(total_count=0, reviews=[])
@@ -224,6 +235,7 @@ def main(url):
 
 
 if __name__ == '__main__':
-    url = "https://filmarks.com/movies/68895"
-    url2 = "https://filmarks.com/movies/16289"
-    main(url2)
+    url = "https://filmarks.com/movies/68895"  # sample url
+    DIRNAME = "data"
+    main(url)
+

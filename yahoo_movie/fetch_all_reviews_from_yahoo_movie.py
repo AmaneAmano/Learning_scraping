@@ -3,7 +3,6 @@ import math
 import time
 import random
 import codecs
-import json
 
 import requests
 from bs4 import BeautifulSoup
@@ -15,7 +14,7 @@ def generate_soup_obj(url, params=None):
 
 def find_total_review_count(movie_url):
     """
-    Find a total review count in a target movie.
+    Find a total review count in the target movie.
     :param movie_url: URL of the target movie.
         OK: https://movies.yahoo.co.jp/movie/362714/review/
         NO: https://movies.yahoo.co.jp/movie/未来のミライ/362741/review/
@@ -32,24 +31,24 @@ def find_total_review_count(movie_url):
     return int(re.search(r"([0-9]+)", count_string).group())
 
 
-def make_review_url_list(movie_url):
+def make_review_url_list(movie_url, total_count):
     """
     Make review urls list.
     :param movie_url: Target movie url.
+    :param total_count: total review count from find_total_review_count()
     :return: review url list
     """
-    base_url = "https://movies.yahoo.co.jp"
+
     result = list()
-    total_count = find_total_review_count(movie_url)
     pages = math.ceil(total_count / 10)
 
     for page in range(1, pages+1):
         payload = {"page": page}
         soup = generate_soup_obj(movie_url, params=payload)
-        elements = soup.find_all("a", class_="listview__element--right-icon")
-        for elm in elements:
-            url = base_url + elm.get("href")
-            url = url[:url.index("?")] # Remove query parameter
+        urls = soup.find_all("a", class_="listview__element--right-icon")
+        for el in urls:
+            url = BASE_URL + el.get("href")
+            url = url[:url.index("?")]
             result.append(url)
         time.sleep(random.randint(1, 3))
 
@@ -72,34 +71,25 @@ def fetch_review_text(review_url, is_string=True):
         return review_string.strip().replace("<br/>", "\n")
 
 
-def fetch_movie_title_and_rating(movie_url):
-    soup = generate_soup_obj(movie_url)
-    title = soup.find("h1", class_="text-xlarge").text.replace(" ", "").replace("\n", "")
-    rating_value = float(soup.find("span", {"itemprop": "ratingValue"}).string)
-    return title, rating_value
-
-
-def write_json_format(dist, url_list):
-    output = dict()
-    tmp = dict()
-    for i, url in enumerate(url_list):
-        tmp[i] = fetch_review_text(review_url=url, is_string=False)
-        time.sleep(random.randint(1, 3))
-        print(f"Complete: {url}")
-
-    output['title'], output['rating_value'] = fetch_movie_title_and_rating(movie_url=MOVIE_URL)
-    output['reviews'] = tmp
-
-    with codecs.open(dist, "w", "utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=4)
+def write_txt(obj, dist):
+    with codecs.open(dist, "w", encoding="utf-8")as fw:
+        fw.write("\n".join(obj))
 
 
 if __name__ == "__main__":
-    MOVIE_URL = "https://movies.yahoo.co.jp/movie/363528/review/"  # ペンギン・ハイウェイのレビュー
-    DIST = "./penguin_highway_reviews.json"
+    BASE_URL = "https://movies.yahoo.co.jp"
+    MOVIE_URL = "https://movies.yahoo.co.jp/movie/87654/review/"
+    DIST = "./sample.txt"
 
-    url_list = make_review_url_list(movie_url=MOVIE_URL)
-    print("Complete making a review url list")
+    url_list = make_review_url_list(movie_url=MOVIE_URL,
+                                    total_count=find_total_review_count(MOVIE_URL))
+    print("Complete making review url list")
 
-    write_json_format(dist=DIST, url_list=url_list)
-    print("All Complete")
+    output = []
+    for url in url_list:
+        text = fetch_review_text(review_url=url, is_string=True)
+        output.append(text)
+        time.sleep(random.randint(1, 3))
+        print(f"Complete: {url}")
+
+    write_txt(output, DIST)
